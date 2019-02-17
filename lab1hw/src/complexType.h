@@ -13,13 +13,17 @@ using namespace std;
 
 class complexType {
 	friend complexType operator+(complexType& one, complexType& two);
+	friend ostream& operator<< (ostream&, const complexType&);
+	//friend istream& operator>> (istream&, complexType&);
 
 private:
-	double realPart;
-	double imagePart;
+	int realPart;
+	int imagePart;
 public:
-	complexType(double real, double imag);
+	complexType(int real, int imag);
 	complexType();
+
+
 
 
 };
