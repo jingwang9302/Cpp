@@ -12,9 +12,9 @@ using namespace std;
 
 
 class complexType {
-	friend complexType operator+(complexType& one, complexType& two);
+
 	friend ostream& operator<< (ostream&, const complexType&);
-	//friend istream& operator>> (istream&, complexType&);
+	friend istream& operator>> (istream&, complexType&);
 
 private:
 	int realPart;
@@ -22,7 +22,8 @@ private:
 public:
 	complexType(int real, int imag);
 	complexType();
-
+	complexType operator+(complexType&);
+	void operator+=(complexType&);
 
 
 

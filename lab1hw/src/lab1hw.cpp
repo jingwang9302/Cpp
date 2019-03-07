@@ -1,32 +1,40 @@
 #include <iostream>
 #include <complex>
 #include <string>
-#include <sstream>
+#include <fstream>
 #include "complexType.h"
 using namespace std;
 
 
 int main()
 {
-    istringstream file( "3+5i \n +2-3i \n 45 \n 11+22i \n 33-44i \n 0+0i \n 0-55j \n -3+5i \n" ) ;
 
-    string line ;
-    while( getline( file, line ) )
-    {
-        istringstream stm(line) ;
-        int real, imag ;
-        char ch ;
-        if( stm >> real >> imag >> ch && ch == 'i' && !( stm >> ch ) )
-            cout << complexType<int>(real,imag) << '\n' ;
-        else cerr << "badly formed number '" << line << "'\n" ;
-    }
+	ifstream infile("/Users/apple/Desktop/180a/complex.txt");
+	complexType sum(0,0);
+	complexType temp;
 
+	while(infile >> temp){
+		sum += temp;
+	}
+	cout << sum << endl;
 
-    /*
+//Another method, not using >>.
+//	ifstream inFile("/Users/apple/Desktop/180a/complex.txt");
+//	int a, b;
+//	char x;
+//	complexType sum(0, 0);
+//	inFile >> sum;
+//	while (inFile >> a >> b >> x) {
+//		complexType tmp(a, b);
+//		sum += tmp;
+//		// sum = sum + tmp;
+//	}
+//	cout << sum << endl;
+
     ofstream output;
-    output.open("/Users/apple/Desktop/complexObj.txt");
-    output<<"Sum of all complex number: ";
+    output.open("/Users/apple/Desktop/180a/complexObj.txt");
+    output << sum << endl;
     output.close();
-     */
+
     return 0;
 }
