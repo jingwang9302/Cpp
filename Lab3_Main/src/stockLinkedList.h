@@ -17,7 +17,9 @@ private:
 
 public:
 	stockLinkedList();
+	stockNode * getHead();
 	void print();
+	void reverse_print(stockNode *); //recursively reverse print
 	void buildList();
 	stockNode * returnMiddleList();
 	stockLinkedList split(stockLinkedList&);

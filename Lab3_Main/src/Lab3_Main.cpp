@@ -19,6 +19,7 @@ int main() {
 	stkList.buildList();
 	cout<< "Print the List: "<< endl;
 	stkList.print();
+	stkList.reverse_print(stkList.getHead());
 
 	//return the middle node of a linked list
 	stockNode * middle = stkList.returnMiddleList();

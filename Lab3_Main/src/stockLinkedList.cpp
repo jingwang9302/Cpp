@@ -15,6 +15,9 @@ stockLinkedList::stockLinkedList() {
 	tail = NULL;
 	count= 0;
 }
+stockNode * stockLinkedList::getHead(){
+	return this->head;
+}
 
 void stockLinkedList::print(){
 	stockNode * current;
@@ -26,6 +29,12 @@ void stockLinkedList::print(){
 	}
 }
 
+void stockLinkedList::reverse_print(stockNode * p){
+	if(p!= NULL){
+		reverse_print(p->next);
+		cout<< p->s <<endl;
+	}
+}
 void stockLinkedList::buildList(){
 	stockNode * newStockNode;
 	int num = 1;
